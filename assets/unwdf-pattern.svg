@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="112" viewBox="0 0 320 112">
+  <g fill="none" opacity=".92">
+    <path fill="#C49A6C" d="M0 8h24l-12 12zm32 0h24L44 20zm32 0h24L76 20zm32 0h24l-12 12zm32 0h24l-12 12zm32 0h24l-12 12zm32 0h24l-12 12zm32 0h24l-12 12zm32 0h24l-12 12zm32 0h24l-12 12z"/>
+    <path fill="#5AA7A4" d="M0 30h10v10H0zm20 0h10v10H20zm20 0h10v10H40zm20 0h10v10H60zm20 0h10v10H80zm20 0h10v10h-10zm20 0h10v10h-10zm20 0h10v10h-10zm20 0h10v10h-10zm20 0h10v10h-10zm20 0h10v10h-10zm20 0h10v10h-10zm20 0h10v10h-10zm20 0h10v10h-10zm20 0h10v10h-10zm20 0h10v10h-10z"/>
+    <path fill="#2A287C" d="M0 52h24L12 64zm32 0h24L44 64zm32 0h24L76 64zm32 0h24l-12 12zm32 0h24l-12 12zm32 0h24l-12 12zm32 0h24l-12 12zm32 0h24l-12 12zm32 0h24l-12 12zm32 0h24l-12 12z"/>
+    <path fill="#4E7A45" d="M8 75h8v20H8zm32 0h8v20h-8zm32 0h8v20h-8zm32 0h8v20h-8zm32 0h8v20h-8zm32 0h8v20h-8zm32 0h8v20h-8zm32 0h8v20h-8zm32 0h8v20h-8zm32 0h8v20h-8z"/>
+    <path fill="#C9A13A" d="M0 102h16v6H0zm32 0h16v6H32zm32 0h16v6H64zm32 0h16v6H96zm32 0h16v6h-16zm32 0h16v6h-16zm32 0h16v6h-16zm32 0h16v6h-16zm32 0h16v6h-16zm32 0h16v6h-16z"/>
+  </g>
+</svg>

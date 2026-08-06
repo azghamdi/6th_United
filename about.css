@@ -1,0 +1,97 @@
+.about-page{background:#f4f2fb}.links a.active{color:#277d70;font-weight:700}.about-hero{position:relative;overflow:hidden;background:linear-gradient(125deg,#0f0d2e,#1c1852);color:#fff;padding:105px 0 90px}.about-hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:end}.page-kicker,.overview small,.themes-head small,.faq-intro small{color:#5db8a8;font-size:11px;font-weight:700}.about-hero h1{font-size:60px;line-height:1.12;margin:12px 0 0;font-weight:500}.about-hero h1 strong{color:#5db8a8}.intro>p{font-size:16px;line-height:2;color:#cfcee2;margin:0 0 38px}.fact-row{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #37336a;padding-top:20px}.fact-row span{font-size:9px;color:#9a97c4;border-left:1px solid #37336a;padding-left:15px}.fact-row span:last-child{border:0}.fact-row b{display:block;color:#fff;font-size:17px;margin-bottom:3px}.about-pattern{position:absolute;left:-140px;top:-220px;width:660px;height:660px;border-radius:50%;border:65px solid rgba(93,184,168,.13)}.about-pattern:before,.about-pattern:after{content:'';position:absolute;border:1px solid rgba(93,184,168,.2);border-radius:50%;inset:60px}.about-pattern:after{inset:150px}.overview{padding:110px 0;display:grid;grid-template-columns:65px .8fr 1.2fr;gap:55px}.section-number{color:#5db8a8;font-size:12px}.overview h2,.themes h2,.faq-section h2{font-size:42px;line-height:1.2;margin:7px 0}.overview-copy p{font-size:14px;line-height:2;color:#615e7d;margin:0 0 20px}.overview-copy p:first-child{font-size:18px;color:#292650}.themes{padding:90px 0;background:#0f0d2e;color:#fff}.themes-head{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:48px}.themes-head p{color:#9a97c4;line-height:1.9;font-size:13px}.themes-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #302c65;border-right:1px solid #302c65}.themes-grid article{padding:35px;border-left:1px solid #302c65;border-bottom:1px solid #302c65;min-height:340px;position:relative;transition:.3s}.themes-grid article:hover{background:#161340}.themes-grid article>span{position:absolute;left:30px;top:28px;color:#6f6ba3;font-size:11px}.themes-grid i{font-style:normal;color:#5db8a8;font-size:35px}.themes-grid h3{font-size:22px;max-width:390px;margin:25px 0 12px}.themes-grid p{color:#9a97c4;line-height:1.85;font-size:12px;max-width:440px}.themes-grid ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:7px;margin-top:25px}.themes-grid li{font-size:9px;color:#a7dcd3;background:#0f2e29;border:1px solid #28574f;border-radius:999px;padding:6px 10px}.faq-section{padding:110px 0;display:grid;grid-template-columns:.72fr 1.28fr;gap:95px}.faq-intro{position:sticky;top:40px;align-self:start}.faq-intro p{font-size:12px;color:#777394;line-height:1.8;max-width:300px}.faq-list details{border-bottom:1px solid #d9d6e8}.faq-list summary{list-style:none;display:grid;grid-template-columns:35px 1fr 30px;align-items:center;padding:22px 0;cursor:pointer;font-size:15px;font-weight:600}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary span{color:#5db8a8;font-size:9px}.faq-list summary i{font-style:normal;color:#5db8a8;font-size:18px;transition:.25s}.faq-list details[open] summary i{transform:rotate(45deg)}.faq-list details p{font-size:12px;line-height:1.9;color:#716d8e;margin:0 35px 24px 30px}.faq-register{display:flex;justify-content:space-between;margin-top:25px;background:#5db8a8;color:#04211c;text-decoration:none;padding:15px 18px;border-radius:9px;font-size:12px;font-weight:700}.about-cta{background:#5db8a8;color:#04211c;padding:80px 0;position:relative;overflow:hidden}.about-cta:after{content:'';position:absolute;width:400px;height:400px;border:1px solid rgba(4,33,28,.18);border-radius:50%;left:5%;top:-130px}.about-cta span{font-size:11px;font-weight:700}.about-cta h2{font-size:53px;line-height:1.1;margin:12px 0 30px}.about-cta a{display:inline-flex;gap:35px;background:#0f0d2e;color:#fff;text-decoration:none;padding:14px 20px;border-radius:9px;font-size:12px;font-weight:700}
+@media(max-width:750px){.about-page header .join{display:none}.about-hero{padding:65px 0}.about-hero-inner,.themes-head,.faq-section{grid-template-columns:1fr;gap:35px}.about-hero h1{font-size:42px}.fact-row{gap:12px}.overview{grid-template-columns:35px 1fr;padding:70px 0}.overview-copy{grid-column:2}.overview h2,.themes h2,.faq-section h2{font-size:34px}.themes{padding:65px 0}.themes-grid{grid-template-columns:1fr}.themes-grid article{min-height:auto;padding:28px}.faq-section{padding:70px 0}.faq-intro{position:static}.about-cta h2{font-size:40px}}
+
+/* Riyadh image hero */
+.about-hero{min-height:610px;display:flex;align-items:center;background-image:linear-gradient(90deg,rgba(7,8,30,.58) 0%,rgba(12,10,43,.72) 48%,rgba(12,10,43,.96) 100%),url("assets/riyadh-skyline-about.png");background-size:cover;background-position:center 62%;padding:90px 0}.about-hero-inner{width:calc(100% - 96px);max-width:1720px}.about-hero h1{font-size:clamp(48px,4.1vw,78px);text-shadow:0 3px 20px rgba(0,0,0,.45)}.intro{padding:28px;border:1px solid rgba(255,255,255,.16);border-radius:16px;background:rgba(12,10,43,.55);backdrop-filter:blur(10px)}.intro>p{color:#fff;font-weight:500}.about-pattern{display:none}@media(max-width:750px){.about-hero{min-height:680px;background-image:linear-gradient(180deg,rgba(12,10,43,.82),rgba(12,10,43,.97)),url("assets/riyadh-skyline-about.png");background-position:38% center}.about-hero-inner{width:calc(100% - 28px)}.intro{padding:20px}}
+/* Dark about refinements */
+.about-page .overview{background:#0f0d2e}.about-page .themes{border-top:1px solid #2c2870;border-bottom:1px solid #2c2870}.about-page .faq-section{background:#0f0d2e}.about-page footer{background:#08071b}
+/* Complete dark palette for About page */
+.about-page{background:#0f0d2e;color:#f3f2fb}.about-page .overview{color:#f3f2fb;border-bottom:1px solid #2c2870}.about-page .overview-title small,.about-page .themes-head small,.about-page .faq-intro small{color:#72d5c5}.about-page .overview-title h2,.about-page .themes-head h2,.about-page .faq-intro h2{color:#fff}.about-page .overview-copy p{color:#aaa7ca}.about-page .overview-copy p:first-child{color:#efedf8}.about-page .section-number{color:#72d5c5}.about-page .themes{background:#0a0825}.about-page .themes-head p{color:#aaa7ca}.about-page .themes-grid{border-color:#302c65}.about-page .themes-grid article{background:#161340;border-color:#302c65}.about-page .themes-grid article:hover{background:#1c1852;border-color:#464086}.about-page .themes-grid article>span{color:#7773a0}.about-page .themes-grid i{color:#72d5c5}.about-page .themes-grid h3{color:#fff}.about-page .themes-grid p{color:#aaa7ca}.about-page .themes-grid li{color:#9fe0d5;background:#123a34;border-color:#2e6d63}.about-page .faq-section{color:#f3f2fb}.about-page .faq-intro p{color:#aaa7ca}.about-page .faq-list details{border-color:#302c68}.about-page .faq-list summary{color:#f3f2fb}.about-page .faq-list summary span,.about-page .faq-list summary i{color:#72d5c5}.about-page .faq-list details p{color:#aaa7ca}.about-page .faq-register{background:#5db8a8;color:#04211c;box-shadow:0 9px 22px rgba(0,0,0,.16)}.about-page .about-cta{background:#5db8a8;color:#04211c}.about-page .about-cta a{background:#0f0d2e;color:#fff}.about-page footer{background:#08071b;border-top:1px solid #2c2870}@media(max-width:750px){.about-page .overview{border-bottom:0}}
+/* Reference-inspired About page composition */
+.about-page main{padding-top:1px}.about-hero{width:calc(100% - 96px);max-width:1720px;min-height:540px;margin:36px auto 0;border-radius:32px;overflow:hidden;padding:65px 0;background-position:center 60%;box-shadow:0 20px 55px rgba(0,0,0,.2)}.about-hero-inner{width:calc(100% - 100px);max-width:none}.about-hero h1{font-size:clamp(48px,4vw,76px);line-height:1.1}.about-hero .intro{max-width:720px}.overview{padding:105px 0 90px;border-bottom:0!important}.overview-title h2{font-size:clamp(38px,3.3vw,62px)}.overview-copy p:first-child{font-size:clamp(17px,1.25vw,24px);line-height:1.85}.about-stats{padding:0 0 110px}.stats-heading{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px;align-items:end;margin-bottom:34px;padding-top:34px;border-top:1px solid #302c68}.stats-heading small{color:#72d5c5;font-size:12px;font-weight:700;grid-column:1/-1}.stats-heading h2{font-size:clamp(36px,3.2vw,60px);line-height:1.15;margin:0;color:#fff}.stats-heading p{max-width:420px;color:#aaa7ca;font-size:14px;line-height:1.9;margin:0}.stats-board{display:grid;grid-template-columns:repeat(4,1fr);background:#161340;border:1px solid #302c68;border-radius:20px;overflow:hidden}.stats-board article{min-height:190px;padding:32px;display:flex;flex-direction:column;justify-content:flex-end;border-left:1px solid #302c68;position:relative}.stats-board article:last-child{border-left:0}.stats-board article:before{content:"";position:absolute;right:32px;top:32px;width:9px;height:9px;border-radius:50%;background:#5db8a8;box-shadow:0 0 0 6px rgba(93,184,168,.12)}.stats-board strong{font-size:clamp(46px,4vw,74px);line-height:1;color:#fff}.stats-board span{margin-top:10px;color:#aaa7ca;font-size:13px}.themes{padding:105px 0}.themes-head{margin-bottom:38px}.themes-head h2{font-size:clamp(40px,3.4vw,64px)}.themes-grid{border-radius:20px;overflow:hidden}.themes-grid article{min-height:360px}.faq-section{padding:115px 0}.faq-list details{background:#161340;border:1px solid #302c68;border-radius:12px;margin-bottom:10px;padding:0 20px}.faq-list details[open]{border-color:#4a458c}.faq-list summary{padding:22px 0}.faq-list details p{padding-bottom:3px}.about-cta{width:calc(100% - 96px);max-width:1720px;margin:0 auto 80px;border-radius:28px;padding:75px 55px}.about-cta:after{opacity:.55}@media(max-width:750px){.about-hero{width:calc(100% - 22px);min-height:650px;margin-top:12px;border-radius:22px;padding:40px 0}.about-hero-inner{width:calc(100% - 34px)}.overview{padding:70px 0}.about-stats{padding-bottom:70px}.stats-heading{grid-template-columns:1fr;gap:15px}.stats-board{grid-template-columns:1fr 1fr}.stats-board article{min-height:135px;padding:20px;border-bottom:1px solid #302c68}.stats-board strong{font-size:42px}.themes{padding:70px 0}.themes-grid article{min-height:auto}.faq-section{padding:75px 0}.faq-list details{padding:0 14px}.about-cta{width:calc(100% - 22px);margin-bottom:45px;padding:55px 25px;border-radius:22px}}
+/* About page without decorative numbering */
+.overview{grid-template-columns:.8fr 1.2fr}.overview-copy{grid-column:auto}.themes-grid article>span{display:none}@media(max-width:750px){.overview{grid-template-columns:1fr}.overview-copy{grid-column:auto}}
+
+/* Keep FAQ questions readable and separate the action icon from Arabic text. */
+.about-page .faq-list summary{grid-template-columns:minmax(0,1fr) 32px;gap:14px;line-height:1.65}
+.about-page .faq-list summary i{line-height:1;text-align:center}
+@media(max-width:750px){
+  .about-page .faq-list summary{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;width:100%;padding:18px 0;font-size:16px;line-height:1.65}
+  .about-page .faq-list summary i{flex:0 0 32px;display:grid;place-items:center;width:32px;height:32px;margin-top:1px;border:1px solid rgba(114,213,197,.28);border-radius:9px;background:rgba(114,213,197,.08)}
+  .about-page .faq-list details p{margin:0 0 20px;padding:0 0 0 48px;font-size:13px;line-height:1.9}
+}
+
+/* Polished registration CTA icon. */
+.about-page .faq-register{align-items:center;min-height:60px;padding:8px 9px 8px 20px;border-radius:14px;font-size:14px;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.about-page .faq-register b{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border-radius:11px;background:#0f0d2e;color:#72d5c5;font-size:0;box-shadow:0 7px 18px rgba(15,13,46,.22)}
+.about-page .faq-register b::before{content:"\2197";font-family:Arial,sans-serif;font-size:20px;font-weight:400;line-height:1;transform:translateY(1px);transition:transform .2s ease}
+.about-page .faq-register:hover{transform:translateY(-2px);background:#6bc6b6;box-shadow:0 13px 28px rgba(0,0,0,.22)}
+.about-page .faq-register:hover b::before{transform:translate(2px,-2px)}
+.about-page .faq-register:focus-visible{outline:3px solid rgba(114,213,197,.4);outline-offset:3px}
+@media(max-width:750px){.about-page .faq-register{min-height:58px;padding:7px 8px 7px 16px}.about-page .faq-register b{flex-basis:42px;width:42px;height:42px}}
+
+/* Unified icon system for the About page. */
+.about-page .themes-grid i{display:grid;place-items:center;width:52px;height:52px;border:1px solid rgba(114,213,197,.3);border-radius:15px;background:rgba(114,213,197,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.about-page .themes-grid i svg{width:26px;height:26px;fill:none;stroke:#72d5c5;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.about-page .faq-list summary i{position:relative;font-size:0}
+.about-page .faq-list summary i::before,.about-page .faq-list summary i::after{content:"";position:absolute;inset:50% auto auto 50%;width:13px;height:1.5px;border-radius:99px;background:#72d5c5;transform:translate(-50%,-50%);transition:transform .25s ease,opacity .25s ease}
+.about-page .faq-list summary i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.about-page .faq-list details[open] summary i{transform:none}
+.about-page .faq-list details[open] summary i::after{transform:translate(-50%,-50%) rotate(0);opacity:0}
+.about-page .about-cta a{display:inline-flex;align-items:center;gap:18px;min-height:58px;padding:7px 8px 7px 20px;border-radius:14px}
+.about-page .about-cta a b{display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;border-radius:11px;background:rgba(114,213,197,.12);color:#72d5c5;font-size:0}
+.about-page .about-cta a b::before{content:"\2197";font-family:Arial,sans-serif;font-size:20px;font-weight:400;line-height:1;transform:translateY(1px);transition:transform .2s ease}
+.about-page .about-cta a:hover b::before{transform:translate(2px,-2px)}
+@media(max-width:750px){
+  .about-page .menu{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;width:46px;height:46px;padding:0;border:1px solid rgba(114,213,197,.3);border-radius:13px;background:rgba(114,213,197,.09);font-size:0}
+  .about-page .menu span{display:block;width:19px;height:2px;border-radius:9px;background:#72d5c5;transition:transform .25s ease,opacity .2s ease}
+  .about-page .menu[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .about-page .menu[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .about-page .menu[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+  .about-page .themes-grid i{width:48px;height:48px;border-radius:14px}
+  .about-page .themes-grid i svg{width:24px;height:24px}
+}
+
+/* Distinct icons for the key figures. */
+.about-page .stats-board article::before{display:none}
+.about-page .stats-board article i{position:absolute;top:24px;right:24px;display:grid;place-items:center;width:42px;height:42px;border:1px solid rgba(114,213,197,.28);border-radius:13px;background:rgba(114,213,197,.08);color:#72d5c5}
+.about-page .stats-board article i svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+.about-page .stats-board article strong{padding-top:42px}
+@media(max-width:750px){
+  .about-page .stats-board article i{top:16px;right:16px;width:36px;height:36px;border-radius:11px}
+  .about-page .stats-board article i svg{width:18px;height:18px}
+  .about-page .stats-board article strong{padding-top:34px}
+}
+
+/* Original Riyadh–KAFD sunset artwork for the About hero. */
+.about-page .about-hero{background-image:linear-gradient(90deg,rgba(7,8,30,.24) 0%,rgba(12,10,43,.55) 54%,rgba(12,10,43,.96) 100%),url("assets/riyadh-skyline-geographic-hero.png");background-position:center center}
+@media(max-width:750px){.about-page .about-hero{background-image:linear-gradient(180deg,rgba(12,10,43,.64) 0%,rgba(12,10,43,.88) 62%,rgba(12,10,43,.98) 100%),url("assets/riyadh-skyline-geographic-hero.png");background-position:30% center}}
+
+/* Preserve a clear view of KAFD: copy sits on the right, skyline on the left. */
+@media(min-width:751px){
+  .about-page .about-hero{min-height:680px;background-position:center center}
+  .about-page .about-hero-inner{display:grid;grid-template-columns:minmax(520px,.92fr) 1.08fr;grid-template-rows:auto auto;column-gap:60px;row-gap:22px;align-content:center;align-items:start}
+  .about-page .about-hero-inner>div:first-child{grid-column:1;grid-row:1;align-self:end}
+  .about-page .about-hero .intro{grid-column:1;grid-row:2;max-width:720px;padding:22px 24px;background:rgba(12,10,43,.72);backdrop-filter:blur(14px)}
+  .about-page .about-hero .intro>p{margin-bottom:22px;font-size:14px;line-height:1.9}
+}
+@media(min-width:751px) and (max-width:1100px){
+  .about-page .about-hero-inner{grid-template-columns:minmax(440px,.98fr) 1.02fr;column-gap:32px}
+  .about-page .about-hero h1{font-size:46px}
+}
+
+/* Clean fact row without vertical separators. */
+.about-page .fact-row span{border-left:0;border-right:0;padding-left:0;padding-right:0}
+
+/* Compact registration link. */
+.about-page .faq-register{min-height:48px;margin-top:18px;padding:6px 8px 6px 15px;border-radius:11px;font-size:12px}
+.about-page .faq-register b{flex:0 0 34px;width:34px;height:34px;border-radius:9px}
+.about-page .faq-register b::before{font-size:16px}
+@media(max-width:750px){
+  .about-page .faq-register{min-height:44px;margin-top:14px;padding:5px 6px 5px 12px;border-radius:10px;font-size:11px}
+  .about-page .faq-register b{flex-basis:30px;width:30px;height:30px;border-radius:8px}
+  .about-page .faq-register b::before{font-size:14px}
+}
+
+/* Diriyah clay edge above the About-page footer. */
+.about-page footer{border-top:3px solid #C49A6C!important}

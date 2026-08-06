@@ -1,0 +1,26 @@
+html[dir="ltr"] body,html[dir="ltr"] button,html[dir="ltr"] input,html[dir="ltr"] select{font-family:"Roboto Condensed","Arial Narrow",Arial,sans-serif;text-align:left}
+html[dir="ltr"] .lang-switch{display:inline-flex;align-items:center;justify-content:center;min-width:42px;height:36px;padding:0 11px;border:1px solid #353178;border-radius:9px;color:#d7d5e7;text-decoration:none;font-size:11px;font-weight:700;background:#161340}
+html[dir="ltr"] .hero-v2-content{left:48px;right:auto;text-align:left}
+html[dir="ltr"] .event-ticket{right:28px;left:auto}
+html[dir="ltr"] .timeline:before{left:67px;right:auto}
+html[dir="ltr"] .event{grid-template-columns:100px 1fr}
+html[dir="ltr"] .card{padding:16px 18px 14px 46px}
+html[dir="ltr"] .expand{left:14px;right:auto}
+html[dir="ltr"] .program-note{margin:0 0 18px 112px}
+html[dir="ltr"] .session-meta span{border-left:0;border-right:1px solid #3b3776;padding-left:0;padding-right:10px}
+html[dir="ltr"] .session-meta span:last-child{border-right:0;padding-right:0}
+html[dir="ltr"] .location small::before{order:0}
+html[dir="ltr"] .location>a:hover .link-arrow{transform:translateX(3px)}
+html[dir="ltr"] footer a{margin-right:0;margin-left:22px}
+html[dir="ltr"] .close{right:20px;left:auto}
+html[dir="ltr"] .primary b{margin-left:28px;margin-right:0}
+html[dir="ltr"] .about-hero-inner{direction:ltr}
+html[dir="ltr"] .fact-row span{border-left:0;border-right:1px solid #37336a;padding-left:0;padding-right:15px}
+html[dir="ltr"] .fact-row span:last-child{border-right:0}
+html[dir="ltr"] .stats-board article{border-left:0;border-right:1px solid #302c68}
+html[dir="ltr"] .stats-board article:last-child{border-right:0}
+html[dir="ltr"] .about-page .stats-board article i{left:24px;right:auto}
+html[dir="ltr"] .about-page .faq-list details p{margin-left:0;margin-right:35px}
+@media(min-width:751px){html[dir="ltr"] .about-page .about-hero-inner>div:first-child,html[dir="ltr"] .about-page .about-hero .intro{grid-column:2}html[dir="ltr"] .about-page .about-hero{background-image:linear-gradient(90deg,rgba(7,8,30,.24),rgba(12,10,43,.55) 54%,rgba(12,10,43,.96)),url("assets/riyadh-skyline-geographic-hero.png")}}
+@media(max-width:750px){html[dir="ltr"] .hero-v2-content{left:22px;right:22px}html[dir="ltr"] .event-ticket{left:18px;right:18px}html[dir="ltr"] .timeline:before{left:43px;right:auto}html[dir="ltr"] .event{grid-template-columns:68px 1fr}html[dir="ltr"] .card{padding:14px 10px 12px 38px}html[dir="ltr"] .expand{left:10px;right:auto}html[dir="ltr"] .program-note{margin:0 0 16px 73px}html[dir="ltr"] .menu{margin-left:auto;margin-right:0}html[dir="ltr"] footer a{margin:0 15px 0 0}html[dir="ltr"] .about-page .stats-board article i{left:16px;right:auto}html[dir="ltr"] .about-page .faq-list details p{padding:0 48px 0 0}.lang-switch{margin-left:auto}}
+html[dir="ltr"] .about-page .fact-row span{border-left:0;border-right:0;padding-left:0;padding-right:0}
