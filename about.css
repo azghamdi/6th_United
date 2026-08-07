@@ -117,7 +117,7 @@ html[lang="en"] .about-page .themes-grid article p::before{content:none;display:
 }
 
 /* Diriyah clay edge above the About-page footer. */
-.about-page footer{border-top:3px solid #C49A6C!important}
+.about-page footer{border-top:0!important}
 
 /* Final About-page mobile and tablet layout. */
 @media(max-width:1100px){
