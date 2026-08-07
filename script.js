@@ -55,16 +55,23 @@ const timeline = document.querySelector('.timeline');
 const dayTitle = document.querySelector('.agenda .title h2');
 const dayEyebrow = document.querySelector('.agenda .title small');
 const programmeNote = document.querySelector('.program-note span');
-let selectedDay = 1;
+let selectedDay = 0;
 let activeKind = 'session';
 
 function metadata(event, date) {
   return `<p class="session-meta"><span>${icons.pin}${event.room}</span><span>${icons.clock}${event.duration}</span><span>${icons.calendar}${date}</span></p>`;
 }
 
-function sessionDetails(event) {
-  const personIcon = '<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="18" r="9"/><path d="M9 42c1-10 6-15 15-15s14 5 15 15"/></svg>';
-  return `<div class="session-people"><div class="person-block"><small class="person-role">المتحدث</small><div class="person-row"><span class="avatar">${personIcon}</span><div><b>يُعلن لاحقًا</b><p>اسم المتحدث</p><em>المسمى الوظيفي والجهة</em></div></div></div><div class="person-block moderator"><small class="person-role">يدير الحوار</small><div class="person-row"><span class="avatar">${personIcon}</span><div><b>يُعلن لاحقًا</b><p>اسم مدير الحوار</p><em>المسمى الوظيفي والجهة</em></div></div></div></div><div class="session-description"><small>نبذة عن الجلسة</small><p>${event.description}</p></div>`;
+function sessionDetails(event, index) {
+  const portraits = [
+    ['speaker-saudi-man.webp', 'speaker-saudi-woman.webp'],
+    ['speaker-international-woman.webp', 'speaker-saudi-man.webp'],
+    ['speaker-international-man.webp', 'speaker-saudi-woman.webp'],
+    ['speaker-saudi-woman.webp', 'speaker-international-man.webp']
+  ];
+  const [speakerPhoto, moderatorPhoto] = portraits[(selectedDay + index) % portraits.length];
+  const photo = (file, label) => `<span class="avatar portrait"><img src="assets/${file}" alt="${label}" loading="lazy"><i>صورة تجريبية</i></span>`;
+  return `<div class="session-people"><div class="person-block"><small class="person-role">المتحدث</small><div class="person-row">${photo(speakerPhoto,'صورة تجريبية للمتحدث')}<div><b>يُعلن لاحقًا</b><p>اسم المتحدث</p><em>المسمى الوظيفي والجهة</em></div></div></div><div class="person-block moderator"><small class="person-role">يدير الحوار</small><div class="person-row">${photo(moderatorPhoto,'صورة تجريبية لمدير الحوار')}<div><b>يُعلن لاحقًا</b><p>اسم مدير الحوار</p><em>المسمى الوظيفي والجهة</em></div></div></div></div><div class="session-description"><small>نبذة عن الجلسة</small><p>${event.description}</p></div>`;
 }
 
 function workshopDetails(event) {
@@ -78,7 +85,7 @@ function renderProgramme() {
   dayEyebrow.textContent = day.eyebrow;
   programmeNote.textContent = selectedDay > 1 ? 'تصور أولي لعرض تجربة البرنامج، وتُحدّث التفاصيل عند اعتماد النسخة النهائية.' : 'مختارات من البرنامج الرسمي المبدئي؛ قد تخضع القاعات والتفاصيل للتحديث.';
   const visible = day.events.filter(event => event.kind === activeKind);
-  timeline.innerHTML = visible.map((event,index) => `<article class="event" data-kind="${event.kind}"><time>${event.time}</time><div class="card"><button class="expand" aria-label="فتح التفاصيل">＋</button><div class="event-head">${event.kind==='workshop'?`<b class="workshop-number">${String(index+1).padStart(2,'0')}</b>`:''}<span>${event.type}</span><h3>${event.title}</h3>${metadata(event,day.title)}</div><div class="details">${event.kind==='workshop'?workshopDetails(event):sessionDetails(event)}</div></div></article>`).join('');
+  timeline.innerHTML = visible.map((event,index) => `<article class="event" data-kind="${event.kind}"><time>${event.time}</time><div class="card"><button class="expand" aria-label="فتح التفاصيل">＋</button><div class="event-head">${event.kind==='workshop'?`<b class="workshop-number">${String(index+1).padStart(2,'0')}</b>`:''}<span>${event.type}</span><h3>${event.title}</h3>${metadata(event,day.title)}</div><div class="details">${event.kind==='workshop'?workshopDetails(event):sessionDetails(event,index)}</div></div></article>`).join('');
   timeline.querySelectorAll('.event .card').forEach(card => { card.tabIndex = 0; card.setAttribute('role','button'); card.setAttribute('aria-expanded','false'); });
   if (!visible.length) timeline.innerHTML = '<div class="empty-programme">لا توجد فعاليات ضمن هذا التصنيف في اليوم المختار.</div>';
 }
@@ -87,6 +94,12 @@ document.addEventListener('click', event => {
   const card = event.target.closest('.event .card');
   if (!card || event.target.closest('.workshop-register')) return;
   const item = card.closest('.event');
+  timeline.querySelectorAll('.event.open').forEach(openItem => {
+    if (openItem === item) return;
+    openItem.classList.remove('open');
+    openItem.querySelector('.expand').textContent = '＋';
+    openItem.querySelector('.card').setAttribute('aria-expanded','false');
+  });
   item.classList.toggle('open');
   card.querySelector('.expand').textContent = item.classList.contains('open') ? '−' : '＋';
   card.setAttribute('aria-expanded', String(item.classList.contains('open')));
@@ -94,8 +107,13 @@ document.addEventListener('click', event => {
 
 document.addEventListener('keydown', event => {
   const card = event.target.closest?.('.event .card');
-  if (!card || !['Enter',' '].includes(event.key)) return;
-  event.preventDefault(); card.click();
+  if (card && ['Enter',' '].includes(event.key)) { event.preventDefault(); card.click(); }
+  if (event.key === 'Escape') {
+    document.querySelector('.custom-day-select')?.classList.remove('open');
+    document.querySelector('.day-select-button')?.setAttribute('aria-expanded','false');
+    navLinks?.classList.remove('mobile-open');
+    menuButton?.setAttribute('aria-expanded','false');
+  }
 });
 
 document.querySelectorAll('.filter button').forEach(button => button.addEventListener('click', () => {
@@ -105,7 +123,7 @@ document.querySelectorAll('.filter button').forEach(button => button.addEventLis
 
 const nativeDaySelect = document.querySelector('#programme-day');
 if (nativeDaySelect) {
-  nativeDaySelect.innerHTML = programme.map((day,index)=>`<option value="${index}" ${index===1?'selected':''}>${day.label}</option>`).join('');
+  nativeDaySelect.innerHTML = programme.map((day,index)=>`<option value="${index}" ${index===selectedDay?'selected':''}>${day.label}</option>`).join('');
   nativeDaySelect.classList.add('native-day-select');
   const custom = document.createElement('div'); custom.className = 'custom-day-select';
   custom.innerHTML = '<button type="button" class="day-select-button" aria-expanded="false"><span><small>اليوم المختار</small><b></b></span><i><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></i></button><div class="day-menu" role="listbox"></div>';
@@ -118,7 +136,9 @@ if (nativeDaySelect) {
 }
 
 const menuButton=document.querySelector('.menu'), navLinks=document.querySelector('header .links');
-menuButton?.addEventListener('click',()=>{const open=navLinks.classList.toggle('mobile-open');menuButton.textContent=open?'×':'☰';menuButton.setAttribute('aria-expanded',String(open))});
+if(menuButton&&!menuButton.querySelector('span')) menuButton.innerHTML='<span></span><span></span><span></span>';
+menuButton?.addEventListener('click',()=>{const open=navLinks.classList.toggle('mobile-open');menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'إغلاق القائمة':'فتح القائمة')});
+navLinks?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('mobile-open');menuButton?.setAttribute('aria-expanded','false')}));
 
 const dialog=document.querySelector('#registration');
 document.querySelectorAll('.open-form').forEach(button=>button.onclick=()=>dialog?.showModal());
@@ -126,3 +146,40 @@ document.querySelector('.close')?.addEventListener('click',()=>dialog.close());
 dialog?.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});
 
 renderProgramme();
+
+function initPageLoader(){
+  try { if (sessionStorage.getItem('unwdf-loader-seen')) return; sessionStorage.setItem('unwdf-loader-seen','1'); } catch(e) {}
+  const isArabic=document.documentElement.lang==='ar';
+  const loader=document.createElement('div');
+  loader.className='page-loader';
+  loader.setAttribute('role','status');
+  loader.setAttribute('aria-label',isArabic?'جاري تحميل الموقع':'Loading website');
+  const logoSrc=isArabic?'assets/forum-logo-ar-hq.png?v=4':'assets/forum-logo-en-hq.png?v=4';
+  loader.innerHTML=`<div class="loader-pattern" aria-hidden="true"></div><div class="loader-content"><div class="loader-forum-only" style="--loader-logo:url('${logoSrc}')" aria-hidden="true"></div><div class="loader-progress"><i></i></div><div class="loader-year">RIYADH <span>•</span> 2026</div></div>`;
+  document.body.prepend(loader);document.documentElement.classList.add('is-loading');
+  const started=performance.now();let finished=false;
+  const finish=()=>{if(finished)return;finished=true;setTimeout(()=>{loader.classList.add('is-leaving');document.documentElement.classList.remove('is-loading');setTimeout(()=>loader.remove(),700)},Math.max(0,1250-(performance.now()-started)))};
+  if(document.readyState==='complete')finish();else window.addEventListener('load',finish,{once:true});
+  setTimeout(finish,3000);
+}
+initPageLoader();
+
+
+/* Curated Saudi Statistics Forum montage v39 */
+(function(){
+  var videos=[].slice.call(document.querySelectorAll('.hero-video .hero-clip'));
+  if(videos.length<2)return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){videos.forEach(function(v){v.pause()});return}
+  var sequence=[
+    {video:0,start:0,end:6.65},
+    {video:1,start:11.7,end:14.4},
+    {video:1,start:19.55,end:21.7},
+    {video:1,start:39.05,end:42.15},
+    {video:1,start:55.05,end:58.0}
+  ];
+  var current=0,busy=false;videos.forEach(function(v){v.muted=true});
+  function activate(v){videos.forEach(function(x){x.classList.toggle('active',x===v);if(x!==v)window.setTimeout(function(){x.pause()},760)})}
+  function start(i){current=i%sequence.length;var s=sequence[current],v=videos[s.video];busy=true;function seek(){v.currentTime=s.start;v.play().catch(function(){})}if(v.readyState<1)v.addEventListener('loadedmetadata',seek,{once:true});else seek();var done=function(){v.removeEventListener('seeked',done);activate(v);busy=false};v.addEventListener('seeked',done)}
+  videos.forEach(function(v){v.addEventListener('timeupdate',function(){var s=sequence[current];if(!busy&&videos[s.video]===v&&v.currentTime>=s.end-.08)start(current+1)})});
+  videos[0].addEventListener('loadedmetadata',function(){start(0)},{once:true});window.setTimeout(function(){if(videos[0].duration>0)start(0)},1500);
+})();
