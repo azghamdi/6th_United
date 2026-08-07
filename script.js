@@ -189,3 +189,42 @@ if(venuePhoto){
   venuePhoto.src='assets/sofitel-riyadh-venue-dark.png';
   venuePhoto.alt='فندق ومركز مؤتمرات سوفيتل الرياض';
 }
+
+/* Speaker profile cards and accessible profile dialog. */
+(function initSpeakerProfiles(){
+  const grid=document.querySelector('.speakers-grid');
+  if(!grid)return;
+  const additional=[
+    {name:'د. ريم السبيعي',role:'مديرة الذكاء الاصطناعي المسؤول',bio:'متخصصة في تطوير أطر الذكاء الاصطناعي المسؤول وحوكمة الخوارزميات، وتعمل على بناء حلول موثوقة تعزز جودة القرارات والخدمات العامة.',image:'assets/speaker-saudi-woman-2.png'},
+    {name:'م. خالد الدوسري',role:'رئيس هندسة منصات البيانات',bio:'خبير في تصميم منصات البيانات الوطنية والبنى السحابية الآمنة، يقود فرقًا تقنية لتحويل البيانات واسعة النطاق إلى منتجات قابلة للاستخدام.',image:'assets/speaker-saudi-man-2.png'},
+    {name:'جوناثان ريد',role:'خبير أمريكي في حوكمة البيانات',bio:'مستشار في حوكمة البيانات والتشريعات الرقمية، شارك في مبادرات دولية لتعزيز مشاركة البيانات وحماية الخصوصية وبناء الثقة المؤسسية.',image:'assets/speaker-american-man.png'},
+    {name:'د. لوسيا نافارو',role:'باحثة إسبانية في الابتكار الرقمي',bio:'باحثة متخصصة في الابتكار الرقمي والبيانات المفتوحة، وتعمل على تطوير نماذج تعاونية تربط البحث العلمي بالسياسات العامة والأثر المجتمعي.',image:'assets/speaker-spanish-woman.png'}
+  ];
+  additional.forEach(person=>grid.insertAdjacentHTML('beforeend',`<button class="speaker-card" type="button" data-name="${person.name}" data-role="${person.role}" data-bio="${person.bio}" data-image="${person.image}"><span class="speaker-image"><img src="${person.image}" alt="${person.name}"></span><span class="speaker-info"><b>${person.name}</b><small>${person.role}</small><i>عرض النبذة ←</i></span></button>`));
+  const cards=[...grid.querySelectorAll('.speaker-card')];
+  if(!cards.length)return;
+  const controls=document.createElement('div');
+  controls.className='speakers-controls';
+  controls.innerHTML='<button type="button" class="speaker-prev" aria-label="المتحدث السابق">→</button><button type="button" class="speaker-next" aria-label="المتحدث التالي">←</button>';
+  document.querySelector('.speakers-heading')?.appendChild(controls);
+  let activeIndex=0,timer;
+  const goTo=index=>{activeIndex=(index+cards.length)%cards.length;cards[activeIndex].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'})};
+  controls.querySelector('.speaker-prev').addEventListener('click',()=>goTo(activeIndex-1));
+  controls.querySelector('.speaker-next').addEventListener('click',()=>goTo(activeIndex+1));
+  const stop=()=>clearInterval(timer),start=()=>{stop();timer=setInterval(()=>goTo(activeIndex+1),3800)};
+  grid.addEventListener('mouseenter',stop);grid.addEventListener('mouseleave',start);grid.addEventListener('focusin',stop);grid.addEventListener('focusout',start);grid.addEventListener('touchstart',stop,{passive:true});grid.addEventListener('touchend',start,{passive:true});
+  const observer=new IntersectionObserver(entries=>entries[0].isIntersecting?start():stop(),{threshold:.35});observer.observe(grid);
+  const profile=document.createElement('dialog');
+  profile.className='speaker-profile-dialog';
+  profile.setAttribute('aria-labelledby','speaker-profile-name');
+  profile.innerHTML='<button class="speaker-dialog-close" type="button" aria-label="إغلاق">×</button><div class="speaker-dialog-layout"><div class="speaker-dialog-photo"><img alt=""></div><div class="speaker-dialog-copy"><small>نبذة المتحدث</small><h2 id="speaker-profile-name"></h2><h3></h3><p></p></div></div>';
+  document.body.appendChild(profile);
+  const image=profile.querySelector('img'),name=profile.querySelector('h2'),role=profile.querySelector('h3'),bio=profile.querySelector('p');
+  cards.forEach(card=>card.addEventListener('click',()=>{
+    image.src=card.dataset.image;image.alt=card.dataset.name;
+    name.textContent=card.dataset.name;role.textContent=card.dataset.role;bio.textContent=card.dataset.bio;
+    profile.showModal();
+  }));
+  profile.querySelector('.speaker-dialog-close').addEventListener('click',()=>profile.close());
+  profile.addEventListener('click',event=>{if(event.target===profile)profile.close()});
+})();
