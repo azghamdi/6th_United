@@ -51,7 +51,6 @@ dialog?.querySelector('form')?.addEventListener('submit',event=>{event.preventDe
 renderProgramme();
 
 function initPageLoader(){
-  try{if(sessionStorage.getItem('unwdf-loader-seen'))return;sessionStorage.setItem('unwdf-loader-seen','1')}catch(e){}
   const isArabic=document.documentElement.lang==='ar';
   const loader=document.createElement('div');
   loader.className='page-loader';loader.setAttribute('role','status');loader.setAttribute('aria-label',isArabic?'جاري تحميل الموقع':'Loading website');

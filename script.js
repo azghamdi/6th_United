@@ -148,7 +148,6 @@ dialog?.addEventListener('click',event=>{if(event.target===dialog)dialog.close()
 renderProgramme();
 
 function initPageLoader(){
-  try { if (sessionStorage.getItem('unwdf-loader-seen')) return; sessionStorage.setItem('unwdf-loader-seen','1'); } catch(e) {}
   const isArabic=document.documentElement.lang==='ar';
   const loader=document.createElement('div');
   loader.className='page-loader';
