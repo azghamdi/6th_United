@@ -21,6 +21,10 @@
   .about-page .faq-list details p{margin:0 0 20px;padding:0 0 0 48px;font-size:13px;line-height:1.9}
 }
 
+/* Diriyah heritage edge shared with the Media Centre banner */
+.about-hero:after{content:"";position:absolute;z-index:4;inset:auto 0 0;height:22px;background:url("assets/diriyah-triangles.svg") center bottom/auto 22px repeat-x;opacity:.78;pointer-events:none}
+@media(max-width:700px){.about-hero:after{height:16px;background-size:auto 16px;opacity:.72}.about-hero-inner{padding-bottom:12px!important}}
+
 /* Polished registration CTA icon. */
 .about-page .faq-register{align-items:center;min-height:60px;padding:8px 9px 8px 20px;border-radius:14px;font-size:14px;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
 .about-page .faq-register b{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border-radius:11px;background:#0f0d2e;color:#72d5c5;font-size:0;box-shadow:0 7px 18px rgba(15,13,46,.22)}
