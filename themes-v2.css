@@ -1,3 +1,5 @@
+.about-page .about-hero::after{content:""!important;display:block!important;position:absolute!important;z-index:5!important;right:0!important;bottom:0!important;left:0!important;width:100%!important;height:30px!important;background-image:url('assets/diriyah-triangles.svg')!important;background-position:center bottom!important;background-size:auto 30px!important;background-repeat:repeat-x!important;opacity:1!important;pointer-events:none}
+.about-page .faq-section::before,.about-page .faq-list::after{display:none!important;content:none!important;background:none!important}
 .themes-map{position:relative;padding-inline-end:88px}
 .themes-columns{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
 .theme-column{display:grid;grid-template-rows:240px 250px;min-width:0}

@@ -97,7 +97,7 @@ footer p{line-height:1.9}footer p b{color:#d8d6e6;font-size:11px;font-weight:600
 
 /* Institutional footer */
 .site-footer{position:relative;background:#090823;border-top:1px solid #302b66;color:#fff;padding:70px 0 24px;overflow:hidden}
-.site-footer:before{content:"";position:absolute;inset:0 0 auto;height:7px;background:linear-gradient(90deg,#5db8a8 0 34%,#d3a634 34% 50%,#527f4d 50% 68%,#29256b 68%)}
+.site-footer:before{content:"";position:absolute;right:0;left:0;top:0;height:2px;background:linear-gradient(90deg,transparent 8%,rgba(93,184,168,.75) 50%,transparent 92%);opacity:.7}
 .footer-main{display:grid;grid-template-columns:1.35fr repeat(3,.72fr);gap:58px;padding-bottom:48px}
 .footer-brand .footer-logos{display:flex;margin-bottom:24px}.footer-brand p{max-width:390px;margin:0;color:#aaa7c7;line-height:1.9;font-size:14px}.footer-brand .event-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.event-meta span{padding:8px 11px;border:1px solid #302b66;border-radius:999px;color:#ccc9df;font-size:12px;background:#131039}
 .footer-column h3{font-size:16px;margin:4px 0 20px;color:#fff}.footer-column nav{display:grid;gap:13px}.footer-column a{color:#aaa7c7;text-decoration:none;font-size:14px;transition:.2s}.footer-column a:hover{color:#68d5c6;transform:translateX(-3px)}
@@ -738,7 +738,7 @@ footer>.wrap{position:relative;z-index:1}
 
 /* Final institutional footer lock */
 .site-footer{padding:70px 0 24px!important;background:#090823!important;border-top:1px solid #302b66!important;overflow:hidden!important}
-.site-footer:before{display:block!important;z-index:0!important;inset:0 0 auto!important;height:7px!important;background:linear-gradient(90deg,#5db8a8 0 34%,#d3a634 34% 50%,#527f4d 50% 68%,#29256b 68%)!important;opacity:1!important}
+.site-footer:before{display:block!important;z-index:2!important;right:0!important;left:0!important;top:0!important;bottom:auto!important;height:2px!important;background:linear-gradient(90deg,transparent 8%,rgba(93,184,168,.75) 50%,transparent 92%)!important;opacity:.7!important}
 .site-footer>.wrap{display:block!important;position:relative;z-index:1;width:calc(100% - 96px)!important;max-width:1720px!important;margin:0 auto!important;text-align:inherit!important}
 .site-footer .footer-main{display:grid!important;grid-template-columns:1.35fr repeat(3,.72fr)!important;gap:58px!important;justify-items:stretch!important;text-align:inherit!important}
 .site-footer .footer-logos{display:flex!important;width:auto!important;max-width:420px!important;height:auto!important;min-height:0!important;flex:none!important;padding:0!important;overflow:visible!important}
