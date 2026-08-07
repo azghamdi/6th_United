@@ -64,10 +64,10 @@ function metadata(event, date) {
 
 function sessionDetails(event, index) {
   const portraits = [
-    ['speaker-saudi-man.webp', 'speaker-saudi-woman.webp'],
-    ['speaker-international-woman.webp', 'speaker-saudi-man.webp'],
-    ['speaker-international-man.webp', 'speaker-saudi-woman.webp'],
-    ['speaker-saudi-woman.webp', 'speaker-international-man.webp']
+    ['speaker-saudi-man-unified.png', 'speaker-saudi-woman-unified.png'],
+    ['speaker-international-woman-unified.png', 'speaker-saudi-man-unified.png'],
+    ['speaker-international-man-unified.png', 'speaker-saudi-woman-unified.png'],
+    ['speaker-saudi-woman-unified.png', 'speaker-international-man-unified.png']
   ];
   const [speakerPhoto, moderatorPhoto] = portraits[(selectedDay + index) % portraits.length];
   const photo = (file, label) => `<span class="avatar portrait"><img src="assets/${file}" alt="${label}" loading="lazy"><i>صورة تجريبية</i></span>`;
@@ -194,6 +194,19 @@ if(venuePhoto){
 (function initSpeakerProfiles(){
   const grid=document.querySelector('.speakers-grid');
   if(!grid)return;
+  const unifiedImages={
+    'assets/speaker-saudi-woman.webp':'assets/speaker-saudi-woman-unified.png',
+    'assets/speaker-saudi-man.webp':'assets/speaker-saudi-man-unified.png',
+    'assets/speaker-international-woman.webp':'assets/speaker-international-woman-unified.png',
+    'assets/speaker-international-man.webp':'assets/speaker-international-man-unified.png'
+  };
+  grid.querySelectorAll('.speaker-card').forEach(card=>{
+    const image=unifiedImages[card.dataset.image];
+    if(!image)return;
+    card.dataset.image=image;
+    const portrait=card.querySelector('.speaker-image img');
+    if(portrait)portrait.src=image;
+  });
   const additional=[
     {name:'د. ريم السبيعي',role:'مديرة الذكاء الاصطناعي المسؤول',bio:'متخصصة في تطوير أطر الذكاء الاصطناعي المسؤول وحوكمة الخوارزميات، وتعمل على بناء حلول موثوقة تعزز جودة القرارات والخدمات العامة.',image:'assets/speaker-saudi-woman-2.png'},
     {name:'م. خالد الدوسري',role:'رئيس هندسة منصات البيانات',bio:'خبير في تصميم منصات البيانات الوطنية والبنى السحابية الآمنة، يقود فرقًا تقنية لتحويل البيانات واسعة النطاق إلى منتجات قابلة للاستخدام.',image:'assets/speaker-saudi-man-2.png'},
