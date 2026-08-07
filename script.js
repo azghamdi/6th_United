@@ -203,9 +203,11 @@ if(venuePhoto){
   grid.querySelectorAll('.speaker-card').forEach(card=>{
     const image=unifiedImages[card.dataset.image];
     if(!image)return;
-    card.dataset.image=image;
     const portrait=card.querySelector('.speaker-image img');
-    if(portrait)portrait.src=image;
+    if(!portrait)return;
+    const ready=new Image();
+    ready.onload=()=>{portrait.src=image;card.dataset.image=image;};
+    ready.src=image;
   });
   const additional=[
     {name:'د. ريم السبيعي',role:'مديرة الذكاء الاصطناعي المسؤول',bio:'متخصصة في تطوير أطر الذكاء الاصطناعي المسؤول وحوكمة الخوارزميات، وتعمل على بناء حلول موثوقة تعزز جودة القرارات والخدمات العامة.',image:'assets/speaker-saudi-woman-2.png'},

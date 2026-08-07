@@ -843,3 +843,21 @@ footer>.wrap{position:relative;z-index:1}
 .speaker-image::after{inset:0 0 -3px;transform:translateZ(0)}
 .speaker-info{position:relative;z-index:2;margin-top:-2px;background:#161340}
 .speaker-card:hover .speaker-image img{transform:scale(1.035) translateZ(0)}
+
+/* Match the speakers heading with the established Diriyah section identity. */
+.speakers-heading h2::after{content:"";display:block;width:146px;height:37px;margin-top:10px;background:url("assets/diriyah-triangles.svg") no-repeat right center/146px auto;opacity:.82;pointer-events:none}
+html[dir="ltr"] .speakers-heading h2::after{background-position:left center}
+@media(max-width:750px){.speakers-heading h2::after{width:104px;height:27px;margin-top:7px;background-size:104px auto}}
+
+/* Gold corner marker used across the main section headings. */
+.speakers-heading>div{position:relative;padding-inline-start:30px}
+.speakers-heading>div::before{content:"⌜";position:absolute;inset-inline-start:0;top:18px;color:#d3a53c;font-size:27px;font-weight:400;line-height:1;pointer-events:none}
+html[dir="ltr"] .speakers-heading>div::before{transform:scaleX(-1)}
+@media(max-width:750px){.speakers-heading>div{padding-inline-start:24px}.speakers-heading>div::before{top:15px;font-size:23px}}
+
+/* Prevent the legacy teal portraits from flashing before JS swaps in the unified set. */
+.speaker-card[data-image$="speaker-saudi-woman.webp"] .speaker-image img,
+.speaker-card[data-image$="speaker-saudi-man.webp"] .speaker-image img,
+.speaker-card[data-image$="speaker-international-woman.webp"] .speaker-image img,
+.speaker-card[data-image$="speaker-international-man.webp"] .speaker-image img{opacity:0}
+.speaker-image img{transition:transform .35s ease,opacity .18s ease}

@@ -102,9 +102,11 @@ if(venuePhoto){
   grid.querySelectorAll('.speaker-card').forEach(card=>{
     const image=unifiedImages[card.dataset.image];
     if(!image)return;
-    card.dataset.image=image;
     const portrait=card.querySelector('.speaker-image img');
-    if(portrait)portrait.src=image;
+    if(!portrait)return;
+    const ready=new Image();
+    ready.onload=()=>{portrait.src=image;card.dataset.image=image;};
+    ready.src=image;
   });
   const additional=[
     {name:'Dr Reem Alsubaie',role:'Director of Responsible AI',bio:'A specialist in responsible AI and algorithmic governance, developing trusted solutions that improve decision quality and public services.',image:'assets/speaker-saudi-woman-2.png'},
