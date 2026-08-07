@@ -785,3 +785,10 @@ footer>.wrap{position:relative;z-index:1}
 .location.venue-showcase .venue-card>a:hover{background:#5db8a8;border-color:#5db8a8;color:#04211c}
 .location.venue-showcase::before,.location.venue-showcase::after{display:none!important}
 @media(max-width:750px){.location.venue-showcase{display:flex!important;min-height:0!important;margin-top:56px!important;padding:0 0 22px!important;background:#161340!important;border:1px solid #302c68!important;border-radius:20px!important;overflow:hidden!important}.venue-photo{order:0;width:100%;height:230px;margin:0;border:0;border-radius:0;box-shadow:none}.venue-photo img{object-position:center}.venue-card{order:1;position:relative;inset:auto;top:auto;transform:none;width:100%;min-height:0;padding:45px 22px 4px!important;border:0;border-radius:0;background:transparent;box-shadow:none}.venue-pin{top:-31px;inset-inline-start:22px;width:58px;height:58px;box-shadow:0 0 0 8px #161340}.venue-pin svg{width:26px;height:26px}.location.venue-showcase h2{font-size:23px!important}.location.venue-showcase .venue-card>a{width:100%;justify-content:space-between;margin-top:20px}}
+
+/* Soft venue-image treatment so the photograph blends into the navy identity. */
+.venue-photo{position:relative;box-shadow:0 28px 62px rgba(3,2,20,.48),0 10px 32px rgba(93,184,168,.18),0 0 0 1px rgba(114,213,197,.3)!important}
+.venue-photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(15,13,46,.34) 0%,transparent 30%,transparent 78%,rgba(15,13,46,.13) 100%),linear-gradient(0deg,rgba(15,13,46,.25),transparent 42%);box-shadow:inset 0 0 42px rgba(15,13,46,.24)}
+.venue-photo img{filter:none;transition:filter .3s ease}
+.venue-photo:hover img{filter:brightness(1.04)}
+@media(max-width:750px){.venue-photo{box-shadow:0 20px 42px rgba(3,2,20,.42),0 8px 22px rgba(93,184,168,.14)!important}.venue-photo::after{background:linear-gradient(0deg,rgba(22,19,64,.38),transparent 48%);box-shadow:inset 0 0 28px rgba(15,13,46,.18)}}

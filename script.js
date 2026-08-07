@@ -186,6 +186,6 @@ initPageLoader();
 /* Use the supplied official venue photograph in the venue showcase. */
 const venuePhoto=document.querySelector('.venue-showcase .venue-photo img');
 if(venuePhoto){
-  venuePhoto.src='assets/sofitel-riyadh-venue.webp';
+  venuePhoto.src='assets/sofitel-riyadh-venue-dark.png';
   venuePhoto.alt='فندق ومركز مؤتمرات سوفيتل الرياض';
 }
