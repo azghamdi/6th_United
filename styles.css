@@ -644,7 +644,8 @@ html.is-loading,html.is-loading body{overflow:hidden!important}
 html[dir="ltr"] .page-loader::after{inset:0;border-radius:0;-webkit-mask-image:none;mask-image:none}
 .loader-content{position:relative;z-index:2;width:min(360px,72vw);display:flex;flex-direction:column;align-items:center;text-align:center;animation:loader-content-in .32s ease-out both}
 .loader-content img{display:block;width:min(300px,100%);max-height:128px;object-fit:contain;filter:drop-shadow(0 12px 30px rgba(0,0,0,.2))}
-.loader-forum-only{width:min(260px,100%);height:82px;background-image:var(--loader-logo);background-repeat:no-repeat;background-size:contain;background-position:center;filter:drop-shadow(0 12px 30px rgba(0,0,0,.2));animation:none}
+.loader-forum-only{width:118px;height:118px;margin-inline:auto;background-image:var(--loader-logo);background-repeat:no-repeat;background-size:contain;background-position:center;filter:drop-shadow(0 12px 30px rgba(0,0,0,.2));animation:none}
+@media(max-width:750px){.loader-forum-only{width:96px;height:96px}}
 html[lang="ar"] .loader-forum-only,html[lang="en"] .loader-forum-only{background-position:center}
 .loader-mosaic{position:relative;width:min(300px,100%);aspect-ratio:311/110;display:grid;grid-template-columns:repeat(var(--cols),1fr);grid-template-rows:repeat(2,1fr);filter:drop-shadow(0 12px 30px rgba(0,0,0,.2));animation:loader-logo-glow .55s 1.05s ease both}
 .loader-mosaic.is-en{width:min(390px,100%);aspect-ratio:948/143}
@@ -890,3 +891,42 @@ html[dir="ltr"] .partners-heading>div::before{transform:scaleX(-1)}
 .partners .events-logos img{max-width:100%!important;width:100%!important;max-height:165px!important}
 @media(max-width:980px){.partners{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:18px}.partners article:last-child{grid-column:1/-1}.partners article:last-child .real-logo-box img{max-width:70%!important}}
 @media(max-width:650px){.partners{grid-template-columns:1fr;row-gap:14px}.partners article,.partners article:last-child{grid-column:auto;min-height:265px!important;padding:22px 19px 18px!important}.partners article>h2{min-height:60px;font-size:18px!important}.partners .real-logo-box{min-height:145px}.partners .events-logos{width:calc(100% + 12px)!important;margin-inline:-6px!important}.partners article:last-child .real-logo-box img{max-width:100%!important;max-height:145px!important}}
+/* Branded scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--bg);
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #72d5c4, var(--accent));
+  border: 3px solid var(--bg);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7de0cf;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--bg);
+}
+
+@media (max-width: 640px) {
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-width: 2px;
+  }
+}
