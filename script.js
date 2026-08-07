@@ -125,14 +125,30 @@ const nativeDaySelect = document.querySelector('#programme-day');
 if (nativeDaySelect) {
   nativeDaySelect.innerHTML = programme.map((day,index)=>`<option value="${index}" ${index===selectedDay?'selected':''}>${day.label}</option>`).join('');
   nativeDaySelect.classList.add('native-day-select');
-  const custom = document.createElement('div'); custom.className = 'custom-day-select';
-  custom.innerHTML = '<button type="button" class="day-select-button" aria-expanded="false"><span><small>اليوم المختار</small><b></b></span><i><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></i></button><div class="day-menu" role="listbox"></div>';
+  const custom = document.createElement('div'); custom.className = 'programme-day-tabs';
+  custom.setAttribute('role','tablist');
+  custom.setAttribute('aria-label','اختر يوم البرنامج');
   nativeDaySelect.after(custom);
-  const button = custom.querySelector('.day-select-button'), label = button.querySelector('b'), menu = custom.querySelector('.day-menu');
-  programme.forEach((day,index) => { const option = document.createElement('button'); option.type='button'; option.className='day-option'+(index===selectedDay?' selected':''); option.innerHTML=`<span>${String(index+1).padStart(2,'0')}</span><b>${day.label}</b>`; option.onclick=()=>{selectedDay=index;nativeDaySelect.value=index;label.textContent=day.label;menu.querySelectorAll('.day-option').forEach(item=>item.classList.remove('selected'));option.classList.add('selected');custom.classList.remove('open');button.setAttribute('aria-expanded','false');renderProgramme()}; menu.appendChild(option); });
-  label.textContent = programme[selectedDay].label;
-  button.onclick=()=>{const open=custom.classList.toggle('open');button.setAttribute('aria-expanded',String(open))};
-  document.addEventListener('click',event=>{if(!custom.contains(event.target)){custom.classList.remove('open');button.setAttribute('aria-expanded','false')}});
+  programme.forEach((day,index) => {
+    const option = document.createElement('button');
+    option.type='button';
+    option.className='programme-day-tab'+(index===selectedDay?' active':'');
+    option.setAttribute('role','tab');
+    option.setAttribute('aria-selected',String(index===selectedDay));
+    option.innerHTML=`<span>${9+index} نوفمبر</span><small>${index===0?'الافتتاح':index===3?'الختام':'البرنامج'}</small>`;
+    option.onclick=()=>{
+      selectedDay=index;
+      nativeDaySelect.value=index;
+      custom.querySelectorAll('.programme-day-tab').forEach((item,itemIndex)=>{
+        const active=itemIndex===index;
+        item.classList.toggle('active',active);
+        item.setAttribute('aria-selected',String(active));
+      });
+      renderProgramme();
+      option.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+    };
+    custom.appendChild(option);
+  });
 }
 
 const menuButton=document.querySelector('.menu'), navLinks=document.querySelector('header .links');
@@ -162,6 +178,11 @@ function initPageLoader(){
   setTimeout(finish,3000);
 }
 initPageLoader();
+
+/* Keep registration choices in the visual space formerly occupied by the event ticket. */
+const heroRegistrationModes=document.querySelector('.hero-v2-content .hero-registration-modes');
+const mainHero=document.querySelector('.hero-v2');
+if(heroRegistrationModes&&mainHero)mainHero.appendChild(heroRegistrationModes);
 
 
 /* Curated Saudi Statistics Forum montage v39 */

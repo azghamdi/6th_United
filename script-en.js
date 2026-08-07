@@ -43,7 +43,36 @@ function renderProgramme(){const day=programme[selectedDay];dayTitle.textContent
 document.addEventListener('click',event=>{const card=event.target.closest('.event .card');if(!card||event.target.closest('.workshop-register'))return;const item=card.closest('.event');timeline.querySelectorAll('.event.open').forEach(openItem=>{if(openItem===item)return;openItem.classList.remove('open');openItem.querySelector('.expand').textContent='＋';openItem.querySelector('.card').setAttribute('aria-expanded','false')});item.classList.toggle('open');card.querySelector('.expand').textContent=item.classList.contains('open')?'−':'＋';card.setAttribute('aria-expanded',String(item.classList.contains('open')))});
 document.addEventListener('keydown',event=>{const card=event.target.closest?.('.event .card');if(!card||!['Enter',' '].includes(event.key))return;event.preventDefault();card.click()});
 document.querySelectorAll('.filter button').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.filter button').forEach(item=>item.classList.remove('active'));button.classList.add('active');activeKind=button.dataset.kind;renderProgramme()}));
-const nativeDaySelect=document.querySelector('#programme-day');if(nativeDaySelect){nativeDaySelect.innerHTML=programme.map((day,index)=>`<option value="${index}" ${index===selectedDay?'selected':''}>${day.label}</option>`).join('');nativeDaySelect.classList.add('native-day-select');const custom=document.createElement('div');custom.className='custom-day-select';custom.innerHTML='<button type="button" class="day-select-button" aria-expanded="false"><span><small>Selected day</small><b></b></span><i><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></i></button><div class="day-menu" role="listbox"></div>';nativeDaySelect.after(custom);const button=custom.querySelector('.day-select-button'),label=button.querySelector('b'),menu=custom.querySelector('.day-menu');programme.forEach((day,index)=>{const option=document.createElement('button');option.type='button';option.className='day-option'+(index===selectedDay?' selected':'');option.innerHTML=`<span>${String(index+1).padStart(2,'0')}</span><b>${day.label}</b>`;option.onclick=()=>{selectedDay=index;nativeDaySelect.value=index;label.textContent=day.label;menu.querySelectorAll('.day-option').forEach(item=>item.classList.remove('selected'));option.classList.add('selected');custom.classList.remove('open');button.setAttribute('aria-expanded','false');renderProgramme()};menu.appendChild(option)});label.textContent=programme[selectedDay].label;button.onclick=()=>{const open=custom.classList.toggle('open');button.setAttribute('aria-expanded',String(open))};document.addEventListener('click',event=>{if(!custom.contains(event.target)){custom.classList.remove('open');button.setAttribute('aria-expanded','false')}})}
+const nativeDaySelect=document.querySelector('#programme-day');
+if(nativeDaySelect){
+  nativeDaySelect.innerHTML=programme.map((day,index)=>`<option value="${index}" ${index===selectedDay?'selected':''}>${day.label}</option>`).join('');
+  nativeDaySelect.classList.add('native-day-select');
+  const custom=document.createElement('div');
+  custom.className='programme-day-tabs';
+  custom.setAttribute('role','tablist');
+  custom.setAttribute('aria-label','Select programme day');
+  nativeDaySelect.after(custom);
+  programme.forEach((day,index)=>{
+    const option=document.createElement('button');
+    option.type='button';
+    option.className='programme-day-tab'+(index===selectedDay?' active':'');
+    option.setAttribute('role','tab');
+    option.setAttribute('aria-selected',String(index===selectedDay));
+    option.innerHTML=`<span>Nov ${9+index}</span><small>${index===0?'Opening':index===3?'Closing':'Programme'}</small>`;
+    option.onclick=()=>{
+      selectedDay=index;
+      nativeDaySelect.value=index;
+      custom.querySelectorAll('.programme-day-tab').forEach((item,itemIndex)=>{
+        const active=itemIndex===index;
+        item.classList.toggle('active',active);
+        item.setAttribute('aria-selected',String(active));
+      });
+      renderProgramme();
+      option.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+    };
+    custom.appendChild(option);
+  });
+}
 const menuButton=document.querySelector('.menu'),navLinks=document.querySelector('header .links');if(menuButton&&!menuButton.querySelector('span'))menuButton.innerHTML='<span></span><span></span><span></span>';menuButton?.addEventListener('click',()=>{const open=navLinks.classList.toggle('mobile-open');menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Close menu':'Open menu')});
 document.addEventListener('keydown',event=>{const card=event.target.closest?.('.event .card');if(card&&(event.key==='Enter'||event.key===' ')){event.preventDefault();card.click()}if(event.key==='Escape'){document.querySelector('.custom-day-select')?.classList.remove('open');document.querySelector('.day-select-button')?.setAttribute('aria-expanded','false');navLinks?.classList.remove('mobile-open');menuButton?.setAttribute('aria-expanded','false')}});
 const dialog=document.querySelector('#registration');document.querySelectorAll('.open-form').forEach(button=>button.onclick=()=>dialog?.showModal());document.querySelector('.close')?.addEventListener('click',()=>dialog.close());dialog?.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});
@@ -149,3 +178,7 @@ if(venuePhoto){
   profile.querySelector('.speaker-dialog-close').addEventListener('click',()=>profile.close());
   profile.addEventListener('click',event=>{if(event.target===profile)profile.close()});
 })();
+/* Keep registration choices in the visual space formerly occupied by the event ticket. */
+const heroRegistrationModes=document.querySelector('.hero-v2-content .hero-registration-modes');
+const mainHero=document.querySelector('.hero-v2');
+if(heroRegistrationModes&&mainHero)mainHero.appendChild(heroRegistrationModes);

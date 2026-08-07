@@ -897,6 +897,117 @@ html {
   scrollbar-color: var(--accent) var(--bg);
 }
 
+/* Programme day tabs — replaces the former dropdown */
+.hero-v2 + .toolbar {
+  align-items: stretch;
+}
+
+.day-picker:has(.programme-day-tabs) {
+  width: min(620px, 56vw);
+  height: auto;
+  min-height: 58px;
+}
+
+.programme-day-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 7px;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #353178;
+  border-radius: 13px;
+  background: #12103a;
+}
+
+.programme-day-tab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: transparent;
+  color: #aaa7ca;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.programme-day-tab span {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.programme-day-tab small {
+  margin-top: 2px;
+  color: #8581ad;
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.programme-day-tab:hover {
+  color: #fff;
+  border-color: #45408c;
+  background: #211d57;
+  transform: translateY(-1px);
+}
+
+.programme-day-tab.active {
+  border-color: #72d5c4;
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 7px 18px rgba(93,184,168,.22);
+}
+
+.programme-day-tab.active small {
+  color: #174b42;
+}
+
+.programme-day-tab:focus-visible {
+  outline: 3px solid rgba(114,213,196,.35);
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .hero-v2 + .toolbar {
+    display: block;
+  }
+
+  .day-picker:has(.programme-day-tabs) {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .day-picker:has(.programme-day-tabs) {
+    overflow: visible;
+  }
+
+  .programme-day-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 6px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .programme-day-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .programme-day-tab {
+    flex: 0 0 126px;
+    min-height: 52px;
+    scroll-snap-align: center;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 11px;
   height: 11px;
@@ -928,5 +1039,65 @@ html {
 
   ::-webkit-scrollbar-thumb {
     border-width: 2px;
+  }
+}
+
+/* The venue/date ticket was intentionally removed from the hero. */
+.hero-v2 .event-ticket {
+  display: none !important;
+}
+
+/* Registration choices moved into the former ticket position. */
+.hero-v2 > .hero-registration-modes {
+  position: absolute;
+  inset-inline-start: 28px;
+  bottom: 28px;
+  z-index: 4;
+  width: min(620px, 49%);
+  max-width: none;
+  margin: 0;
+}
+
+.hero-v2 > .hero-registration-modes .registration-mode {
+  min-height: 64px;
+  padding-block: 9px;
+}
+
+.hero-v2 > .hero-registration-modes .registration-mode .mode-icon {
+  width: 34px;
+  height: 34px;
+  flex-basis: 34px;
+  border-radius: 9px;
+}
+
+.hero-v2 > .hero-registration-modes .registration-mode svg {
+  width: 17px;
+  height: 17px;
+}
+
+.hero-v2 > .hero-registration-modes .registration-mode::after {
+  width: 20px;
+  height: 20px;
+  font-size: 11px;
+}
+
+@media (max-width: 750px) {
+  .hero-v2 > .hero-registration-modes {
+    position: relative;
+    inset: auto;
+    order: 5;
+    width: 100%;
+    margin-top: 18px;
+  }
+
+  .hero-v2 > .hero-registration-modes .registration-mode {
+    min-height: 54px !important;
+    padding: 7px !important;
+  }
+
+  .hero-v2 > .hero-registration-modes .registration-mode .mode-icon {
+    width: 30px !important;
+    height: 30px !important;
+    flex-basis: 30px !important;
   }
 }
