@@ -82,6 +82,13 @@ initPageLoader();
   videos[0].addEventListener('loadedmetadata',function(){start(0)},{once:true});window.setTimeout(function(){if(videos[0].duration>0)start(0)},1500);
 })();
 
+/* Partners section heading, aligned with the shared Saudi visual identity. */
+(function addPartnersHeading(){
+  const section=document.querySelector('.partners');
+  if(!section||section.querySelector('.partners-heading'))return;
+  section.insertAdjacentHTML('afterbegin','<div class="partners-heading"><div><span>Partners in success</span><h2>Partners</h2></div><small>A collaborative ecosystem supporting the forum</small></div>');
+})();
+
 /* Use the supplied official venue photograph in the venue showcase. */
 const venuePhoto=document.querySelector('.venue-showcase .venue-photo img');
 if(venuePhoto){
