@@ -21,6 +21,22 @@
   .about-page .faq-list details p{margin:0 0 20px;padding:0 0 0 48px;font-size:13px;line-height:1.9}
 }
 
+/* Theme cards — desktop and responsive hierarchy */
+.about-page .themes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;background:transparent;border:0;overflow:visible}
+.about-page .themes-grid article{display:flex;flex-direction:column;min-height:430px;padding:28px 24px 24px;border:1px solid #37327a!important;border-radius:22px;background:linear-gradient(180deg,#211d5c 0 53%,#161340 53% 100%);overflow:hidden}
+.about-page .themes-grid article i{width:54px;height:54px;margin-bottom:22px;border-radius:15px;background:#2865b5;color:#fff;box-shadow:0 10px 24px rgba(0,0,0,.2)}
+.about-page .themes-grid article h3{font-size:21px;line-height:1.65;margin:0;color:#fff}
+.about-page .themes-grid article h3::before{content:none;display:none}
+.about-page .themes-grid article p{margin:24px 0 0;padding-top:0;border-top:0;color:#d7d5ea;font-size:14px;font-weight:500;line-height:1.8}
+.about-page .themes-grid article p::before{content:none;display:none}
+.about-page .themes-grid article ul{margin:14px 0 0;padding:0;list-style:none;color:#d7d5ea;font-size:14px;line-height:1.75}
+.about-page .themes-grid article li{position:relative;padding-inline-start:17px}
+.about-page .themes-grid article li::before{content:"";position:absolute;inset-inline-start:0;top:.78em;width:7px;height:7px;border-radius:50%;background:#72d5c5}
+html[lang="en"] .about-page .themes-grid article h3::before{content:none;display:none}
+html[lang="en"] .about-page .themes-grid article p::before{content:none;display:none}
+@media(max-width:1100px){.about-page .themes-grid{grid-template-columns:repeat(2,1fr)}.about-page .themes-grid article{min-height:390px}}
+@media(max-width:600px){.about-page .themes-grid{grid-template-columns:1fr;gap:14px}.about-page .themes-grid article{min-height:auto!important;padding:24px 20px!important;background:linear-gradient(180deg,#211d5c 0 55%,#161340 55% 100%)}.about-page .themes-grid article h3{font-size:20px}.about-page .themes-grid article p{margin-top:25px}}
+
 /* Diriyah heritage edge shared with the Media Centre banner */
 .about-hero:after{content:"";position:absolute;z-index:4;inset:auto 0 0;height:22px;background:url("assets/diriyah-triangles.svg") center bottom/auto 22px repeat-x;opacity:.78;pointer-events:none}
 @media(max-width:700px){.about-hero:after{height:16px;background-size:auto 16px;opacity:.72}.about-hero-inner{padding-bottom:12px!important}}
@@ -62,6 +78,8 @@
 .about-page .stats-board article i{position:absolute;top:24px;right:24px;display:grid;place-items:center;width:42px;height:42px;border:1px solid rgba(114,213,197,.28);border-radius:13px;background:rgba(114,213,197,.08);color:#72d5c5}
 .about-page .stats-board article i svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
 .about-page .stats-board article strong{padding-top:42px}
+.about-page .stats-board article:nth-child(n+5){border-top:1px solid #302c68}
+.about-page .stats-board article:nth-child(4n){border-left:0}
 @media(max-width:750px){
   .about-page .stats-board article i{top:16px;right:16px;width:36px;height:36px;border-radius:11px}
   .about-page .stats-board article i svg{width:18px;height:18px}
@@ -118,6 +136,22 @@
   .about-page .about-stats{padding-top:42px!important;padding-bottom:42px!important}
   .about-page .stats-board{grid-template-columns:repeat(2,1fr)!important;border-radius:16px!important;overflow:hidden}
   .about-page .stats-board article{min-height:150px!important;padding:16px!important}.about-page .stats-board article strong{font-size:30px!important}
+
+/* Clear strategic and supporting theme hierarchy */
+.about-page .themes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;background:transparent;border:0;overflow:visible}
+.about-page .themes-grid article{display:flex;flex-direction:column;min-height:430px;padding:28px 24px 24px;border:1px solid #37327a!important;border-radius:22px;background:linear-gradient(180deg,#211d5c 0 53%,#161340 53% 100%);overflow:hidden}
+.about-page .themes-grid article i{width:54px;height:54px;margin-bottom:22px;border-radius:15px;background:#2865b5;color:#fff;box-shadow:0 10px 24px rgba(0,0,0,.2)}
+.about-page .themes-grid article h3{font-size:21px;line-height:1.65;margin:0;color:#fff}
+.about-page .themes-grid article h3::before{content:none;display:none}
+.about-page .themes-grid article p{margin:24px 0 0;padding-top:0;border-top:0;color:#d7d5ea;font-size:14px;font-weight:500;line-height:1.8}
+.about-page .themes-grid article p::before{content:none;display:none}
+.about-page .themes-grid article ul{margin:14px 0 0;padding:0;list-style:none;color:#d7d5ea;font-size:14px;line-height:1.75}
+.about-page .themes-grid article li{position:relative;padding-inline-start:17px}
+.about-page .themes-grid article li::before{content:"";position:absolute;inset-inline-start:0;top:.78em;width:7px;height:7px;border-radius:50%;background:#72d5c5}
+html[lang="en"] .about-page .themes-grid article h3::before{content:none;display:none}
+html[lang="en"] .about-page .themes-grid article p::before{content:none;display:none}
+@media(max-width:1100px){.about-page .themes-grid{grid-template-columns:repeat(2,1fr)}.about-page .themes-grid article{min-height:390px}}
+@media(max-width:600px){.about-page .themes-grid{grid-template-columns:1fr;gap:14px}.about-page .themes-grid article{min-height:auto;padding:24px 20px;background:linear-gradient(180deg,#211d5c 0 55%,#161340 55% 100%)}.about-page .themes-grid article h3{font-size:20px}.about-page .themes-grid article p{margin-top:25px}}
   .about-page .themes{padding:40px 14px!important;border-radius:18px!important}
   .about-page .themes-grid{grid-template-columns:1fr!important;gap:10px!important}.about-page .themes-grid article{min-height:0!important;padding:16px!important}
   .about-page .faq-section{display:block!important;padding-top:46px!important;padding-bottom:46px!important}
