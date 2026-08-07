@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 618 695" role="img" aria-label="United Nations World Data Forum mark">
+  <g fill="#CBA12B">
+    <circle cx="266" cy="68" r="63"/>
+    <path d="M456 313h129l-64 120z"/>
+    <path d="M198 441h129l-65 121z"/>
+    <path d="M463 568h120v122H463z"/>
+  </g>
+  <g fill="#27753B">
+    <path d="M0 145l117-25 25 118-118 24z"/>
+    <circle cx="388" cy="370" r="61"/>
+    <circle cx="136" cy="500" r="63"/>
+    <circle cx="524" cy="500" r="63"/>
+    <path d="M329 695l65-129 65 129z"/>
+  </g>
+  <g fill="#16729E">
+    <path d="M438 140l-108 86 120 51z"/>
+    <path d="M165 278l113-40 39 113-112 40z"/>
+    <path d="M335 441h121v121H335z"/>
+    <circle cx="266" cy="627" r="63"/>
+  </g>
+  <g fill="#AD1F27">
+    <path d="M504 131l114 42-40 112-116-41z"/>
+    <path d="M132 301L67 425h129z"/>
+    <path d="M73 568h120v122H73z"/>
+  </g>
+</svg>
