@@ -25,6 +25,7 @@
 .about-page .faq-register{align-items:center;min-height:60px;padding:8px 9px 8px 20px;border-radius:14px;font-size:14px;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
 .about-page .faq-register b{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border-radius:11px;background:#0f0d2e;color:#72d5c5;font-size:0;box-shadow:0 7px 18px rgba(15,13,46,.22)}
 .about-page .faq-register b::before{content:"\2197";font-family:Arial,sans-serif;font-size:20px;font-weight:400;line-height:1;transform:translateY(1px);transition:transform .2s ease}
+.about-page .faq-register b::before{content:none!important}.about-page .faq-register b .inline-arrow{display:block!important;width:16px;height:16px;color:#72d5c5}
 .about-page .faq-register:hover{transform:translateY(-2px);background:#6bc6b6;box-shadow:0 13px 28px rgba(0,0,0,.22)}
 .about-page .faq-register:hover b::before{transform:translate(2px,-2px)}
 .about-page .faq-register:focus-visible{outline:3px solid rgba(114,213,197,.4);outline-offset:3px}
@@ -84,11 +85,11 @@
 .about-page .fact-row span{border-left:0;border-right:0;padding-left:0;padding-right:0}
 
 /* Compact registration link. */
-.about-page .faq-register{min-height:48px;margin-top:18px;padding:6px 8px 6px 15px;border-radius:11px;font-size:12px}
+.about-page .faq-register{width:min(100%,430px);min-height:48px;margin-top:18px;margin-inline-end:auto;padding:6px 8px 6px 15px;border-radius:11px;font-size:12px}
 .about-page .faq-register b{flex:0 0 34px;width:34px;height:34px;border-radius:9px}
 .about-page .faq-register b::before{font-size:16px}
 @media(max-width:750px){
-  .about-page .faq-register{min-height:44px;margin-top:14px;padding:5px 6px 5px 12px;border-radius:10px;font-size:11px}
+  .about-page .faq-register{width:min(100%,360px);min-height:44px;margin-top:14px;padding:5px 6px 5px 12px;border-radius:10px;font-size:11px}
   .about-page .faq-register b{flex-basis:30px;width:30px;height:30px;border-radius:8px}
   .about-page .faq-register b::before{font-size:14px}
 }
