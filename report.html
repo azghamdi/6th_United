@@ -90,6 +90,30 @@ footer{background:#0f0d2e!important;color:#aaa6c5!important;border-top-color:#30
   .closing{margin:8mm 0 0!important;padding:10mm!important}
   footer{break-before:auto!important;page-break-before:auto!important;padding:6mm 0!important;background:#0f0d2e!important}
 }
+/* Mobile statistics alignment fix v7 */
+@media(max-width:760px){
+  .summary article{position:relative!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;gap:5px!important;min-height:150px!important;padding:18px 10px!important;box-sizing:border-box!important}
+  .summary .icon{position:static!important;inset:auto!important;display:grid!important;place-items:center!important;width:38px!important;height:38px!important;margin:0 0 3px!important;transform:none!important;flex:0 0 38px!important}
+  .summary .icon svg{width:20px!important;height:20px!important}
+  .summary strong{display:block!important;position:static!important;margin:0!important;line-height:1!important;font-size:31px!important}
+  .summary span:not(.icon){display:block!important;position:static!important;margin-top:7px!important;line-height:1.5!important;min-height:30px!important;font-size:10px!important}
+}
+@media(max-width:380px){.summary article{min-height:142px!important}.summary strong{font-size:28px!important}.summary .icon{width:35px!important;height:35px!important;flex-basis:35px!important}}
+/* Definitive mobile metric icon spacing v8 */
+@media screen and (max-width:760px){
+  .summary article{display:grid!important;grid-template-rows:42px auto auto!important;align-content:center!important;justify-items:center!important;row-gap:8px!important;min-height:158px!important;padding:16px 10px!important}
+  .summary article>.icon{position:relative!important;top:auto!important;right:auto!important;bottom:auto!important;left:auto!important;inset:auto!important;grid-row:1!important;width:38px!important;height:38px!important;margin:0!important;transform:none!important}
+  .summary article>strong{position:relative!important;top:auto!important;right:auto!important;bottom:auto!important;left:auto!important;grid-row:2!important;margin:0!important;padding:0!important;line-height:.95!important;transform:none!important}
+  .summary article>span:not(.icon){position:relative!important;grid-row:3!important;margin:0!important;padding:0!important;min-height:0!important;transform:none!important}
+}
+/* Mobile vertical rhythm repair v9 */
+@media screen and (max-width:760px){
+  main.page{padding:32px 0 0}
+  .section{padding:38px 0}
+  main>.section:first-child{padding-top:24px;padding-bottom:22px}
+  main>.section:first-child .section-head{margin-bottom:24px}
+  main>.section.global{padding:42px 22px}
+}
 </style>
 </head>
 <body>
