@@ -768,3 +768,20 @@ footer>.wrap{position:relative;z-index:1}
 /* More breathing room between the programme and the official venue. */
 .location{margin-top:clamp(80px,8vw,140px)!important}
 @media(max-width:750px){.location{margin-top:56px!important}}
+
+/* Venue showcase: image-led location block with an overlapping information card. */
+.location.venue-showcase{display:grid!important;grid-template-columns:minmax(0,1fr);min-height:430px!important;padding:0!important;background:transparent!important;border:0!important;border-radius:24px!important;box-shadow:none!important;overflow:visible!important;position:relative}
+.venue-photo{display:block!important;width:78%;height:430px;margin-inline-start:auto;overflow:hidden;border-radius:24px;border:1px solid #302c68;box-shadow:0 24px 60px rgba(0,0,0,.24)}
+.venue-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.venue-card{position:absolute;z-index:2;inset-inline-start:0;top:50%;transform:translateY(-50%);display:flex!important;flex-direction:column;align-items:flex-start!important;justify-content:center;width:min(390px,38%);min-height:340px;padding:56px 42px 38px!important;border-radius:22px;background:linear-gradient(145deg,#181443,#0f0d2e);border:1px solid #3a3675;box-shadow:0 24px 65px rgba(0,0,0,.36);color:#fff}
+.venue-pin{position:absolute;top:-30px;inset-inline-start:38px;display:grid;place-items:center;width:66px;height:66px;border-radius:50%;background:#5db8a8;box-shadow:0 0 0 10px #0f0d2e,0 14px 30px rgba(0,0,0,.25)}
+.venue-pin svg{width:30px;height:30px;fill:none;stroke:#0f0d2e;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.location.venue-showcase .venue-card small{color:#72d5c5;font-size:13px;font-weight:700}
+.location.venue-showcase .venue-card small::before{display:none}
+.venue-label{margin:7px 0 0!important;color:#f0bd4f!important;font-size:14px!important;font-weight:700}
+.location.venue-showcase h2{margin:8px 0 13px;font-size:30px;line-height:1.35;color:#fff}
+.location.venue-showcase .venue-card>p:not(.venue-label){margin:0;color:#c8c6df;font-size:13px;line-height:1.8}
+.location.venue-showcase .venue-card>a{display:inline-flex;margin-top:24px;padding:11px 15px;border:1px solid rgba(93,184,168,.45);border-radius:9px;background:rgba(93,184,168,.1);color:#8ed7cb}
+.location.venue-showcase .venue-card>a:hover{background:#5db8a8;border-color:#5db8a8;color:#04211c}
+.location.venue-showcase::before,.location.venue-showcase::after{display:none!important}
+@media(max-width:750px){.location.venue-showcase{display:flex!important;min-height:0!important;margin-top:56px!important;padding:0 0 22px!important;background:#161340!important;border:1px solid #302c68!important;border-radius:20px!important;overflow:hidden!important}.venue-photo{order:0;width:100%;height:230px;margin:0;border:0;border-radius:0;box-shadow:none}.venue-photo img{object-position:center}.venue-card{order:1;position:relative;inset:auto;top:auto;transform:none;width:100%;min-height:0;padding:45px 22px 4px!important;border:0;border-radius:0;background:transparent;box-shadow:none}.venue-pin{top:-31px;inset-inline-start:22px;width:58px;height:58px;box-shadow:0 0 0 8px #161340}.venue-pin svg{width:26px;height:26px}.location.venue-showcase h2{font-size:23px!important}.location.venue-showcase .venue-card>a{width:100%;justify-content:space-between;margin-top:20px}}

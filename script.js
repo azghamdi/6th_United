@@ -182,3 +182,10 @@ initPageLoader();
   videos.forEach(function(v){v.addEventListener('timeupdate',function(){var s=sequence[current];if(!busy&&videos[s.video]===v&&v.currentTime>=s.end-.08)start(current+1)})});
   videos[0].addEventListener('loadedmetadata',function(){start(0)},{once:true});window.setTimeout(function(){if(videos[0].duration>0)start(0)},1500);
 })();
+
+/* Use the supplied official venue photograph in the venue showcase. */
+const venuePhoto=document.querySelector('.venue-showcase .venue-photo img');
+if(venuePhoto){
+  venuePhoto.src='assets/sofitel-riyadh-venue.webp';
+  venuePhoto.alt='فندق ومركز مؤتمرات سوفيتل الرياض';
+}
