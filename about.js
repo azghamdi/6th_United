@@ -28,6 +28,8 @@ initPageLoader();
   if(!document.body.classList.contains('media-page'))return;
   const isArabic=document.documentElement.lang==='ar';
   const videos=[...document.querySelectorAll('.media-hero video,.video-examples video')];
+  const playIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7.5 17 12l-8 4.5z"/></svg>';
+  const pauseIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 7v10M15.5 7v10"/></svg>';
   videos.forEach(video=>{
     video.muted=true;
     video.defaultMuted=true;
@@ -43,7 +45,7 @@ initPageLoader();
       control=document.createElement('button');
       control.className='mobile-video-control';
       control.type='button';
-      control.textContent='▶';
+      control.innerHTML=playIcon;
       container.appendChild(control);
     }else if(control.tagName!=='BUTTON'){
       control.setAttribute('role','button');
@@ -51,7 +53,7 @@ initPageLoader();
     }
     const setState=()=>{
       const paused=video.paused;
-      control.textContent=paused?'▶':'Ⅱ';
+      control.innerHTML=paused?playIcon:pauseIcon;
       control.setAttribute('aria-label',paused?(isArabic?'تشغيل الفيديو':'Play video'):(isArabic?'إيقاف الفيديو مؤقتًا':'Pause video'));
       control.classList.toggle('is-playing',!paused);
     };

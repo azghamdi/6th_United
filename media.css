@@ -21,6 +21,7 @@ html[dir=ltr] .media-intro{border-right:0;border-left:1px solid rgba(255,255,255
 .media-hero>video,.video-examples video{background:#0b0928}
 .video-shade{pointer-events:none}
 .video-play,.mobile-video-control{z-index:5;border:0;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.video-play svg,.mobile-video-control svg{display:block;width:21px;height:21px;fill:#0f0d2e;stroke:#0f0d2e;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .mobile-video-control{position:absolute;left:24px;top:24px;display:grid;place-items:center;width:48px;height:48px;padding:0;border-radius:50%;background:#efbd42;color:#0f0d2e;font:700 17px/1 Arial;box-shadow:0 10px 28px rgba(0,0,0,.3)}
 .media-hero>.mobile-video-control{top:auto;bottom:28px;left:28px}
 .video-play.is-playing,.mobile-video-control.is-playing{opacity:.72}
@@ -49,4 +50,31 @@ html[dir=ltr] .media-intro{border-right:0;border-left:1px solid rgba(255,255,255
 @media(min-width:701px) and (max-width:1100px){
   .media-page .media-hero-content{width:calc(100% - 64px)!important;padding-bottom:58px!important}
   .media-page .media-hero h1{font-size:52px}
+}
+
+/* Keep the video play control visible above every mobile overlay. */
+.video-main,.video-small,.media-hero{isolation:isolate}
+@media(max-width:700px){
+  .video-main .video-play,
+  .video-main .mobile-video-control,
+  .video-small .mobile-video-control,
+  .media-hero>.mobile-video-control{
+    position:absolute!important;
+    z-index:30!important;
+    display:grid!important;
+    visibility:visible!important;
+    opacity:1!important;
+    pointer-events:auto!important;
+    width:46px!important;
+    height:46px!important;
+    border:1px solid rgba(255,255,255,.28)!important;
+    border-radius:50%!important;
+    background:#efbd42!important;
+    color:#0f0d2e!important;
+    box-shadow:0 10px 30px rgba(0,0,0,.38)!important;
+  }
+  .video-main .video-play,
+  .video-main .mobile-video-control,
+  .video-small .mobile-video-control{top:16px!important;left:16px!important;right:auto!important;bottom:auto!important}
+  .media-hero>.mobile-video-control{top:auto!important;left:18px!important;right:auto!important;bottom:18px!important}
 }
