@@ -96,6 +96,7 @@ initPageLoader();
 (function(){
   var videos=[].slice.call(document.querySelectorAll('.hero-video .hero-clip'));
   if(videos.length<2)return;
+  if(window.matchMedia('(max-width:750px)').matches){videos[0].muted=true;videos[0].loop=true;videos[0].classList.add('active');videos[0].play().catch(function(){});return}
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){videos.forEach(function(v){v.pause()});return}
   var sequence=[
     {video:0,start:0,end:6.65},
@@ -182,3 +183,30 @@ if(venuePhoto){
 const heroRegistrationModes=document.querySelector('.hero-v2-content .hero-registration-modes');
 const mainHero=document.querySelector('.hero-v2');
 if(heroRegistrationModes&&mainHero)mainHero.appendChild(heroRegistrationModes);
+/* Reliable muted hero playback on mobile browsers. */
+(function initMobileHeroVideo(){
+  const videos=[...document.querySelectorAll('.hero-video .hero-clip')];
+  if(!videos.length)return;
+  videos.forEach(video=>{
+    video.muted=true;
+    video.defaultMuted=true;
+    video.playsInline=true;
+    video.setAttribute('muted','');
+    video.setAttribute('playsinline','');
+    video.setAttribute('webkit-playsinline','');
+    video.setAttribute('autoplay','');
+  });
+  const playActive=()=>{
+    const active=document.querySelector('.hero-video .hero-clip.active')||videos[0];
+    active.play().catch(()=>{});
+  };
+  if(matchMedia('(max-width:750px)').matches){
+    videos[0].loop=true;
+    videos.slice(1).forEach(video=>video.pause());
+    videos[0].classList.add('active');
+    playActive();
+  }
+  document.addEventListener('touchstart',playActive,{once:true,passive:true});
+  document.addEventListener('click',playActive,{once:true});
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)playActive()});
+})();

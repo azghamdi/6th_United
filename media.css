@@ -17,6 +17,17 @@ html[dir=ltr] .media-intro{border-right:0;border-left:1px solid rgba(255,255,255
 .media-page .links a.active{background:#5db8a8;color:#04211c!important;font-weight:800;text-shadow:none}
 .media-page .links a.active:after{display:none}
 
+/* Real touch controls and mobile-safe inline video playback. */
+.media-hero>video,.video-examples video{background:#0b0928}
+.video-shade{pointer-events:none}
+.video-play,.mobile-video-control{z-index:5;border:0;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.mobile-video-control{position:absolute;left:24px;top:24px;display:grid;place-items:center;width:48px;height:48px;padding:0;border-radius:50%;background:#efbd42;color:#0f0d2e;font:700 17px/1 Arial;box-shadow:0 10px 28px rgba(0,0,0,.3)}
+.media-hero>.mobile-video-control{top:auto;bottom:28px;left:28px}
+.video-play.is-playing,.mobile-video-control.is-playing{opacity:.72}
+.video-play.needs-tap,.mobile-video-control.needs-tap{animation:mediaPlayPulse 1.4s ease-in-out infinite}
+@keyframes mediaPlayPulse{50%{transform:scale(1.08);box-shadow:0 0 0 10px rgba(239,189,66,.14)}}
+@media(max-width:700px){.video-play,.mobile-video-control{width:44px;height:44px;left:15px;top:15px}.media-hero>.mobile-video-control{top:auto;bottom:18px;left:18px}.media-hero>video,.video-examples video{object-position:center center}}
+
 /* Mobile hero alignment and safe spacing */
 @media(max-width:700px){
   .media-page .media-hero{width:calc(100% - 22px);margin-left:11px;margin-right:11px}

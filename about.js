@@ -22,3 +22,52 @@ function initPageLoader(){
   if(document.readyState==='complete')finish();else window.addEventListener('load',finish,{once:true});setTimeout(finish,3000);
 }
 initPageLoader();
+
+/* Functional, touch-friendly video controls for the media centre. */
+(function initMediaVideos(){
+  if(!document.body.classList.contains('media-page'))return;
+  const isArabic=document.documentElement.lang==='ar';
+  const videos=[...document.querySelectorAll('.media-hero video,.video-examples video')];
+  videos.forEach(video=>{
+    video.muted=true;
+    video.defaultMuted=true;
+    video.playsInline=true;
+    video.setAttribute('muted','');
+    video.setAttribute('playsinline','');
+    video.setAttribute('webkit-playsinline','');
+    video.setAttribute('preload','metadata');
+    const container=video.closest('.media-hero,.video-main,.video-small');
+    if(!container)return;
+    let control=container.querySelector('.video-play,.mobile-video-control');
+    if(!control){
+      control=document.createElement('button');
+      control.className='mobile-video-control';
+      control.type='button';
+      control.textContent='▶';
+      container.appendChild(control);
+    }else if(control.tagName!=='BUTTON'){
+      control.setAttribute('role','button');
+      control.setAttribute('tabindex','0');
+    }
+    const setState=()=>{
+      const paused=video.paused;
+      control.textContent=paused?'▶':'Ⅱ';
+      control.setAttribute('aria-label',paused?(isArabic?'تشغيل الفيديو':'Play video'):(isArabic?'إيقاف الفيديو مؤقتًا':'Pause video'));
+      control.classList.toggle('is-playing',!paused);
+    };
+    const toggle=event=>{
+      event?.preventDefault();
+      event?.stopPropagation();
+      if(video.paused)video.play().catch(()=>control.classList.add('needs-tap'));
+      else video.pause();
+    };
+    control.addEventListener('click',toggle);
+    control.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' ')toggle(event)});
+    video.addEventListener('play',setState);
+    video.addEventListener('pause',setState);
+    video.addEventListener('loadeddata',()=>video.play().catch(()=>{control.classList.add('needs-tap');setState()}),{once:true});
+    setState();
+  });
+  const resume=()=>videos.forEach(video=>video.play().catch(()=>{}));
+  document.addEventListener('touchstart',resume,{once:true,passive:true});
+})();
