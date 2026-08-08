@@ -280,7 +280,13 @@ if(venuePhoto){
   controls.innerHTML='<button type="button" class="speaker-prev" aria-label="المتحدث السابق">→</button><button type="button" class="speaker-next" aria-label="المتحدث التالي">←</button>';
   document.querySelector('.speakers-heading')?.appendChild(controls);
   let activeIndex=0,timer;
-  const goTo=index=>{activeIndex=(index+cards.length)%cards.length;cards[activeIndex].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'})};
+  const goTo=index=>{
+    activeIndex=(index+cards.length)%cards.length;
+    const card=cards[activeIndex];
+    const gridBox=grid.getBoundingClientRect(),cardBox=card.getBoundingClientRect();
+    const delta=cardBox.left-gridBox.left-(gridBox.width-cardBox.width)/2;
+    grid.scrollBy({left:delta,behavior:'smooth'});
+  };
   controls.querySelector('.speaker-prev').addEventListener('click',()=>goTo(activeIndex-1));
   controls.querySelector('.speaker-next').addEventListener('click',()=>goTo(activeIndex+1));
   const stop=()=>clearInterval(timer),start=()=>{stop();timer=setInterval(()=>goTo(activeIndex+1),3800)};
