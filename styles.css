@@ -1126,4 +1126,5 @@ html.a11y-high-contrast body{background:#05040f!important;color:#fff!important}
 html.a11y-high-contrast .card,html.a11y-high-contrast .news-item,html.a11y-high-contrast .media-tile,html.a11y-high-contrast .partners article{border-color:#8b85e5!important}
 html.a11y-reduce-motion{scroll-behavior:auto!important}
 html.a11y-reduce-motion *,html.a11y-reduce-motion *::before,html.a11y-reduce-motion *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+.workshop-topics p{margin:0;color:#f1f0f8;font-size:13px;line-height:1.9}
 @media(max-width:700px){.a11y-dock{bottom:14px;gap:7px}html[dir="rtl"] .a11y-dock{left:12px}html[dir="ltr"] .a11y-dock{right:12px}.a11y-toggle,.back-to-top{width:43px;height:43px;border-radius:12px}.a11y-toggle svg{width:22px;height:22px}.back-to-top svg{width:21px;height:21px}.a11y-panel{position:fixed;right:12px!important;left:12px!important;bottom:66px;width:auto;max-width:none}.a11y-font-controls button{min-height:44px}}
